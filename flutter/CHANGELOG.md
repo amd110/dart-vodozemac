@@ -1,3 +1,8 @@
+## 0.4.3
+
+Update to Vodozemac 0.4.3 with:
+- feat: add 16kb page size alignment for Android 15 support
+
 ## 0.4.0
 
 Update to Vodozemac 0.4.0 with:
