@@ -11,7 +11,7 @@ buildscript {
 
     dependencies {
         // The Android Gradle Plugin knows how to build native code with the NDK.
-        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.android.tools.build:gradle:8.4.1'
     }
 }
 
@@ -31,13 +31,10 @@ android {
 
     // Bumping the plugin compileSdkVersion requires all clients of this plugin
     // to bump the version in their app.
-    compileSdkVersion 33
+    compileSdkVersion 35
 
-    // Use the NDK version
-    // declared in /android/app/build.gradle file of the Flutter project.
-    // Replace it with a version number if this plugin requires a specfic NDK version.
-    // (e.g. ndkVersion "23.1.7779620")
-    ndkVersion android.ndkVersion
+    // 设置 NDK 版本以支持 16KB 页面
+    ndkVersion "27.0.12077973"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,6 +43,28 @@ android {
 
     defaultConfig {
         minSdkVersion 19
+
+        // 添加 16KB 页面支持的 ndk 配置
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+
+        externalNativeBuild {
+            cmake {
+                // 添加编译参数支持 16KB 页面
+                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+                cppFlags "-fPIC"
+            }
+        }
+    }
+
+    // 添加对不同页面大小的支持
+    buildTypes {
+        release {
+            ndk {
+                debugSymbolLevel 'FULL'
+            }
+        }
     }
 }
 

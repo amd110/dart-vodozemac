@@ -1,3 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.famedly.flutter_vodozemac">
+    <application>
+        <!-- 声明支持 16KB 页面大小 -->
+        <property
+            android:name="android.app.property.PAGE_SIZE"
+            android:value="16KB" />
+    </application>
 </manifest>
