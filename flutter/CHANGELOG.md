@@ -1,5 +1,9 @@
 ## 0.5.0
 - fix: Use the specced olm session config v1 by default (Christian Kußowski)
+## 0.4.3
+
+Update to Vodozemac 0.4.3 with:
+- feat: add 16kb page size alignment for Android 15 support
 
 ## 0.4.1
 
