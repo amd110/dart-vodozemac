@@ -1,1 +1,6 @@
 dart/libolm.3.dylib
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/

@@ -3,7 +3,7 @@
 # Run `pod lib lint flutter_vodozemac.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'flutter_vodozemac'
+  s.name             = 'flutter_vodozemac_plus'
   s.version          = '0.0.1'
   s.summary          = 'Dart/Flutter bindings for vodozemac'
   s.description      = <<-DESC
