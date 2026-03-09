@@ -1,5 +1,12 @@
 ## 0.5.0
 - fix: Use the specced olm session config v1 by default (Christian Kußowski)
+
+## 0.4.4
+Bump version to 0.4.4 and update podspec name
+- Rename iOS podspec to `flutter_vodozemac_plus`
+
+Update to Vodozemac 0.4.3 with:
+- feat: add 16kb page size alignment for Android 15 support
 ## 0.4.3
 
 Update to Vodozemac 0.4.3 with:
