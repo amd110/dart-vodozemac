@@ -7,6 +7,6 @@ Future<void> init({String wasmPath = './pkg/'}) => vod.init(
       wasmPath: wasmPath,
       libraryPath: './',
       stem: !kIsWeb && (Platform.isIOS || Platform.isMacOS)
-          ? 'flutter_vodozemac'
+          ? 'flutter_vodozemac_plus'
           : 'vodozemac_bindings_dart',
     );

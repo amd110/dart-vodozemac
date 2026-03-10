@@ -1,6 +1,6 @@
 name: flutter_vodozemac_plus
 description: "Flutter bindings for the Rust Vodozemac library, add 16kb page size alignment for Android 15 support"
-version: 0.4.5
+version: 0.4.6
 repository: https://github.com/amd110/dart-vodozemac
 issue_tracker: https://github.com/amd110/dart-vodozemac/issues
 
