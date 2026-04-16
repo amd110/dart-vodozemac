@@ -1,4 +1,4 @@
-## 0.5.0
+## 0.5.1
 - fix: Use the specced olm session config v1 by default (Christian Kußowski)
 
 ## 0.4.4
