@@ -189,7 +189,7 @@ class AndroidEnvironment {
     if (rustFlags.isNotEmpty) {
       rustFlags = '$rustFlags\x1f';
     }
-    rustFlags = '$rustFlags-L\x1f$workaroundDir';
+    rustFlags = '$rustFlags-L\x1f$workaroundDir\x1f-C\x1flink-arg=-Wl,-z,max-page-size=65536';
     return rustFlags;
   }
 }
