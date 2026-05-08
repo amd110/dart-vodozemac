@@ -1,3 +1,8 @@
+## 0.6.1+2
+Update to Vodozemac  0.4.0 with:
+- feat: Android 支持 64KB 页面大小。
+- feat: 增加 AES-256-CTR 流式接口并升级 flutter_rust_bridge 到 2.12.0
+
 ## 0.5.0
 - fix: Use the specced olm session config v1 by default (Christian Kußowski)
 
