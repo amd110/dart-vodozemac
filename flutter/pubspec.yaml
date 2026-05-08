@@ -1,6 +1,6 @@
 name: flutter_vodozemac_plus
 description: "Flutter bindings for the Rust Vodozemac Plus library"
-version: 0.6.1
+version: 0.6.1+1
 repository: https://github.com/amd110/dart-vodozemac
 
 
