@@ -8,8 +8,8 @@ Currently supported functionality:
 - Ed25519 and Curve25519 encryption and signing
 - Olm encryption and decryption
 - Megolm encryption and decryption
-- Export to the vodozemac pickle format (encrypted)
-- Import from the vodozemac pickle format and the libolm pickle format
+- Export to the vodozemac_plus pickle format (encrypted)
+- Import from the vodozemac_plus pickle format and the libolm pickle format
 - SAS verification
 - Public key cryptography (Pk algorithms)
 
@@ -20,19 +20,19 @@ Vodozemac needs Rust to be installed locally. [Install Rust](https://www.rust-la
 Add the package to your Dart/Flutter project:
 
 ```sh
-flutter pub add vodozemac
+flutter pub add flutter_vodozemac_plus
 ```
 
-You need to build vodozemac first, either the wasm or the native library. For flutter you can use the `flutter_vodozemac` package:
+You need to build vodozemac first, either the wasm or the native library. For flutter you can use the `flutter_vodozemac_plus` package:
 
 ```sh
-flutter pub add flutter_vodozemac
+flutter pub add flutter_vodozemac_plus
 ```
 
 Then you can initialize vodozemac for native platforms like this:
 
 ```dart
-import 'package:flutter_vodozemac/flutter_vodozemac.dart' as vod;
+import 'package:flutter_vodozemac_plus/flutter_vodozemac_plus.dart' as vod;
 
 await vod.init();
 ```
@@ -42,7 +42,7 @@ await vod.init();
 For web you need to build the package by yourself. You can use the script below to do so:
 
 ```sh
-version=$(yq ".dependencies.flutter_vodozemac" < pubspec.yaml)
+version=$(yq ".dependencies.flutter_vodozemac_plus" < pubspec.yaml)
 version=$(expr "$version" : '\^*\(.*\)')
 git clone https://github.com/famedly/dart-vodozemac.git -b ${version} .vodozemac
 cd .vodozemac
