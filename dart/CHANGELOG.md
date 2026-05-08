@@ -1,3 +1,5 @@
+## 0.6.1+2
+- Android 支持 64KB 页面大小。
 ## 0.6.1
  - feat: update change log
 ## 0.6.0

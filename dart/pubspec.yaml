@@ -1,6 +1,6 @@
 name: vodozemac_plus
 description: Provides bindings to the vodozemac library that has Olm and Megolm implementation from Dart.
-version: 0.6.1+1
+version: 0.6.1+2
 repository: https://github.com/amd110/dart-vodozemac
 issue_tracker: https://github.com/amd110/dart-vodozemac/issues
 
