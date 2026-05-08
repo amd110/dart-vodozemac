@@ -928,6 +928,39 @@ impl PkSigning {
     }
 }
 
+pub struct VodozemacAes256Ctr {
+    pub cipher: RustOpaqueNom<RwLock<ctr::Ctr64BE<aes::Aes256>>>,
+}
+
+impl VodozemacAes256Ctr {
+    pub fn new(key: &[u8], iv: &[u8]) -> anyhow::Result<Self> {
+        // Enforce lengths to avoid panics inside the ctr crate
+        if key.len() != 32 {
+            return Err(anyhow::anyhow!("Key must be 32 bytes for AES-256"));
+        }
+        if iv.len() != 16 {
+            return Err(anyhow::anyhow!("IV must be 16 bytes for AES-CTR"));
+        }
+        type Aes256Ctr64BE = ctr::Ctr64BE<aes::Aes256>;
+        let cipher = Aes256Ctr64BE::new(key.into(), iv.into());
+        Ok(Self {
+            cipher: RustOpaqueNom::new(RwLock::new(cipher)),
+        })
+    }
+
+    pub fn update(&self, mut chunk: Vec<u8>) -> Vec<u8> {
+        self.cipher
+            .write()
+            .expect("Failed to get write lock on cipher")
+            .apply_keystream(&mut chunk);
+        chunk
+    }
+
+    pub fn finalize(&self) {
+        // No padding or finalization needed for AES-CTR stream cipher
+    }
+}
+
 pub fn sha256(input: Vec<u8>) -> Vec<u8> {
     Sha256::digest(input).to_vec()
 }

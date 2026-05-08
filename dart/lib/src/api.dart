@@ -661,3 +661,27 @@ abstract class CryptoUtils {
         iterations: iterations,
       );
 }
+
+/// Represents a streaming AES-256-CTR cipher for encrypting/decrypting large files in chunks.
+///
+/// Since AES-CTR is a symmetric stream cipher, the same class and methods are used
+/// for both encryption and decryption.
+final class Aes256Ctr {
+  final vodozemac.VodozemacAes256Ctr _cipher;
+
+  Aes256Ctr._(this._cipher);
+
+  /// Initializes a new AES-256-CTR cipher with a 32-byte key and a 16-byte IV.
+  /// Throws an exception if the key or IV lengths are incorrect.
+  factory Aes256Ctr({required Uint8List key, required Uint8List iv}) =>
+      Aes256Ctr._(vodozemac.VodozemacAes256Ctr(key: key, iv: iv));
+
+  /// Processes a chunk of data, applying the keystream.
+  /// Returns the encrypted/decrypted chunk.
+  Uint8List update(Uint8List chunk) =>
+      _cipher.update(chunk: chunk);
+
+  /// Finalizes the cipher. For AES-CTR, this is generally a no-op but should be called
+  /// to signify the end of the stream.
+  void finalize() => _cipher.finalize();
+}

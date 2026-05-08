@@ -15,4 +15,5 @@ export 'src/api.dart'
         PkSigning,
         init,
         isInitialized,
-        CryptoUtils;
+        CryptoUtils,
+        Aes256Ctr;

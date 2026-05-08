@@ -834,6 +834,42 @@ void main() async {
       expect(decrypted, Uint8List.fromList('test'.codeUnits));
     });
 
+    test('Aes256Ctr streaming API', () {
+      Uint8List secureRandomBytes(int len) {
+        final rng = Random.secure();
+        final list = Uint8List(len);
+        list.setAll(0, Iterable.generate(list.length, (i) => rng.nextInt(256)));
+        return list;
+      }
+      final iv = Uint8List.fromList(secureRandomBytes(16));
+      iv[8] &= 0x7f;
+      final key = Uint8List.fromList(secureRandomBytes(32));
+      final input = Uint8List.fromList('streaming test data'.codeUnits);
+      
+      final cipher = Aes256Ctr(key: key, iv: iv);
+      // Process in two chunks
+      final encryptedChunk1 = cipher.update(input.sublist(0, 10));
+      final encryptedChunk2 = cipher.update(input.sublist(10));
+      cipher.finalize();
+      
+      final encrypted = Uint8List.fromList([...encryptedChunk1, ...encryptedChunk2]);
+      
+      // Decrypt
+      final decCipher = Aes256Ctr(key: key, iv: iv);
+      final decryptedChunk1 = decCipher.update(encrypted.sublist(0, 5));
+      final decryptedChunk2 = decCipher.update(encrypted.sublist(5));
+      decCipher.finalize();
+      
+      final decrypted = Uint8List.fromList([...decryptedChunk1, ...decryptedChunk2]);
+      
+      expect(decrypted, input);
+      
+      // Compare with CryptoUtils.aesCtr
+      final oneshot = CryptoUtils.aesCtr(input: input, key: key, iv: iv);
+      expect(encrypted, oneshot);
+    });
+
+
     test('pbkdf2', () {
       final derivedKey = base64Encode(CryptoUtils.pbkdf2(
         passphrase: 'Password'.codeUnits,
