@@ -23,7 +23,7 @@ echo_info "Compiling Dart entrypoint to JavaScript..."
 cd "$DART_DIR" # we do this because dart compile fails with a relative path for some reason
 dart pub get
 
-DART_INPUT="test/vodozemac_test_web.dart"
+DART_INPUT="test/vodozemac_plus_test_web.dart"
 JS_OUTPUT="web"
 mkdir -p "$JS_OUTPUT"
 dart compile js "$DART_INPUT" \

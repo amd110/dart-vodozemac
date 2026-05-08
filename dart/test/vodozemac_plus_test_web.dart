@@ -6,7 +6,7 @@ import 'package:test_core/src/runner/reporter/expanded.dart';
 import 'package:test_core/src/util/print_sink.dart';
 import 'package:web/web.dart';
 
-import 'vodozemac_test.dart' as generic_test;
+import 'vodozemac_plus_test.dart' as generic_test;
 
 @JS()
 external void close();

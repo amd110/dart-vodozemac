@@ -1,4 +1,4 @@
-import 'package:vodozemac/vodozemac.dart';
+import 'package:vodozemac_plus/vodozemac_plus.dart';
 
 void main() async {
   await init(

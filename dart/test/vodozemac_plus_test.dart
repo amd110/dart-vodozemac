@@ -6,9 +6,9 @@ import 'package:checks/checks.dart';
 import 'package:checks/context.dart';
 import 'package:test/test.dart';
 
-import 'package:vodozemac/vodozemac.dart';
+import 'package:vodozemac_plus/vodozemac_plus.dart';
 
-import 'package:vodozemac/src/generated/bindings.dart'
+import 'package:vodozemac_plus/src/generated/bindings.dart'
     show VodozemacOlmSessionConfig;
 
 extension PublicCurveChecks on Subject<Curve25519PublicKey> {

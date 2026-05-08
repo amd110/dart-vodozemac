@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:olm/olm.dart' as olm;
 import 'package:test/test.dart';
 
-import 'package:vodozemac/vodozemac.dart' as vodozemac;
+import 'package:vodozemac_plus/vodozemac_plus.dart' as vodozemac;
 
 void main() {
   group('Compatibility', () {
