@@ -1,3 +1,8 @@
+## 0.6.0
+
+- feat: rename package to `vodozemac_plus` and change the main export file to `vodozemac_plus.dart`
+- feat: add a streaming AES-256-CTR API (`Aes256Ctr`) to allow processing large files in chunks without excessive memory consumption
+
 ## 0.5.0
 - fix: Use the specced olm session config v1 by default (Christian Kußowski)
 
