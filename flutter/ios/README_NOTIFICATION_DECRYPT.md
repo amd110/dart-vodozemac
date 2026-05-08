@@ -70,9 +70,9 @@ In Xcode, add a new **Notification Service Extension** target to your iOS app:
 
 ### 2. Link the Rust Library
 
-Add the pod `flutter_vodozemac` with the path for the extension:
+Add the pod `flutter_vodozemac_plus` with the path for the extension:
 ```
-pod 'flutter_vodozemac', :path => '.symlinks/plugins/flutter_vodozemac/ios'
+pod 'flutter_vodozemac_plus', :path => '.symlinks/plugins/flutter_vodozemac_plus/ios'
 ```
 Then, include the `vodozemac_ios_ffi_bindings.h` header in your bridging header. For example, create a new file `Notification-Extension-Bridging-Extension.h` with the following content:
 
